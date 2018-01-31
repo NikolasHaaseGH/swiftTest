@@ -30,7 +30,7 @@
 	<key>FacebookAppID</key>
 	<string>127073887979470</string>
 	<key>FacebookDisplayName</key>
-	<string>testProj</string>
+	<string>swiftTest</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

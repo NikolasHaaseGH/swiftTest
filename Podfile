@@ -6,8 +6,8 @@ target 'swiftTest' do
   use_frameworks!
 
   # Pods for swiftTest
-	pod 'FacebookCore', '~> 0.3'
-	pod 'FacebookLogin', '~> 0.3'
+	pod 'FacebookCore' 
+	pod 'FacebookLogin'
 	pod 'Mapbox-iOS-SDK', '~> 3.7'
 
 

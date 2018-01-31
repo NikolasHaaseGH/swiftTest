@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Event{
     let id: String, name: String, description: String?, location: Location?, startTime: Date?, endTime: Date?, userStatus: String?
@@ -22,6 +23,10 @@ struct Event{
     }
     
     struct Location{
+        
+        var coordinates: CLLocationCoordinate2D{
+            get{ return CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!) }
+        }
         
         let name: String?, city: String?, country: String?, latitude: Double?, longitude: Double?, street: String?, zip: String?
         init(with Dict: NSDictionary){

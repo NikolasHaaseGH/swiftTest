@@ -7,10 +7,13 @@
 //
 
 import UIKit
-import FacebookCore
 import Mapbox
 
-class mapViewController: UIViewController, MGLMapViewDelegate{
+class mapViewController: UIViewController, MGLMapViewDelegate, EventListDelegate{
+    func didLoadEvents() {
+        
+    }
+    
 
     var mapView: MGLMapView!
     
@@ -28,9 +31,19 @@ class mapViewController: UIViewController, MGLMapViewDelegate{
         
         mapView.delegate = self
         mapView.showsUserLocation = true
+        let eventList = EventList()
+
+        /*
+        for event in eventList.e{
+        let newMarker = MGLPointAnnotation()
+            //newMarker.coordinate = (event.location?.coordinates)!
+            //newMarker.title = event.name
+            //newMarker.subtitle = event.location?.name
+            
+        mapView.addAnnotation(newMarker)
+        }
+         */
         
-        //let eventList = EventList()
-        //print(EventList.eventIDs)
  
     }
 

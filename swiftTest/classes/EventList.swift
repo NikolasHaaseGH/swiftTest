@@ -19,22 +19,27 @@ class EventList{
     
     var delegate : EventListDelegate?
     
-    var events = Array<Any>(){
+    
+    fileprivate var dictOfEventsAtDates = [String : [Event]](){
         didSet{
             delegate?.didLoadEvents()
-            print("done")
         }
     }
     
     init(){
-        self.fetchAllEvents()
+        refreshEvents()
+    }
+
+    func eventsForDate(date: Date) -> [Event]? {
+        let formattedDateString = date.convertToString(withFormat: "d MMM")
+        return dictOfEventsAtDates[formattedDateString]
     }
     
     func refreshEvents(){
-        self.fetchAllEvents()
+        fetchAllEvents()
     }
 
-    private func fetchAllEvents(){
+    fileprivate func fetchAllEvents(){
         
         let params = ["fields" : ""]
         let graphRequest = GraphRequest(graphPath: "me/events", parameters: params)
@@ -48,18 +53,27 @@ class EventList{
                     case .success(let graphResponse):
                         if let result = graphResponse.dictionaryValue {
                             
-                            var fetchedEvents = Array<Any>()
+                            var fetchedEvents = [String : [Event]]()
                             let arrayOfDataOfAllEvents = result["data"] as! Array<Any>
                             for dataOfEvent in arrayOfDataOfAllEvents{
                                 if let dict = dataOfEvent as? NSDictionary{
                                     let event = Event(with: dict)
-                                    fetchedEvents.append(event)
+                                    print(event)
+                                    let stringDate = event.startTime?.convertToString(withFormat: "d MMM")
+                                    
+                                    var array = [Event]()
+                                    if let val = fetchedEvents[stringDate!] {
+                                        array = val
+                                    }
+                                    array.append(event)
+                                    fetchedEvents[stringDate!] = array
                             }
                     }
-                            self.events = fetchedEvents
+                            self.dictOfEventsAtDates = fetchedEvents
                 }
             }
         }
     }
 }
+
 
