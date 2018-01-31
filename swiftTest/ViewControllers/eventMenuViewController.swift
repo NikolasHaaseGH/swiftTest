@@ -15,6 +15,7 @@ class EventTableView: UITableView{
             return presentingDate.convertToString(withFormat: "d MMM")
         }
     }
+    
 }
 
 protocol pagingDelegate{
@@ -122,6 +123,8 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
             if (self.eventList.eventsForDate(date: Date().dateForDaysFromNow(days: page)) != nil){
             tableView.delegate = self
             tableView.dataSource = self
+            tableView.separatorStyle = .none
+            tableView.backgroundColor = UIColor.clear
             }
             tableView.register(self.eventCellNib, forCellReuseIdentifier: "eventTVCell")
             tableView.presentingDate = Date().dateForDaysFromNow(days: page)
@@ -195,14 +198,11 @@ extension eventMenuViewController{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-
         return (eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)?.count)!
-        
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -211,7 +211,10 @@ extension eventMenuViewController{
         //print(eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)!)
         for index in indexPath{
             let event = eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)![index]
-            cell.titleLabel.text = event.name
+            cell.eventNameLabel.text = event.name
+            cell.placeNameLabel.text = event.location?.name
+            cell.timeLabel.text = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
+            cell.locationLabel.text = event.location?.street
         }
         
         return cell
