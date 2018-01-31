@@ -20,7 +20,7 @@ class eventTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.cornerRadius = 2.0
+        self.layer.cornerRadius = 5.0
         self.clipsToBounds = true
     }
 

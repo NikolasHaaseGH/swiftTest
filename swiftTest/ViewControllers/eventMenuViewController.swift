@@ -15,7 +15,6 @@ class EventTableView: UITableView{
             return presentingDate.convertToString(withFormat: "d MMM")
         }
     }
-    
 }
 
 protocol pagingDelegate{

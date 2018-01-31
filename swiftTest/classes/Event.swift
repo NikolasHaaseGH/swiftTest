@@ -30,7 +30,7 @@ struct Event{
         
         let name: String?, city: String?, country: String?, latitude: Double?, longitude: Double?, street: String?, zip: String?
         init(with Dict: NSDictionary){
-            name = ""
+            name = ((Dict["place"] as? NSDictionary)?.value(forKey: "name") as? String)
             
             let locationDict = ((Dict["place"] as? NSDictionary)?.value(forKey: "location") as? NSDictionary)
             city = locationDict?.value(forKey: "city") as? String
