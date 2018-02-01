@@ -60,7 +60,7 @@ class pageControl{
     
 }
 
-class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDelegate, UITableViewDelegate, UITableViewDataSource{
+class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDelegate, UITableViewDelegate, EventListDelegate, UITableViewDataSource{
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleButton: UIButton!
@@ -70,6 +70,11 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
     
     override func viewWillAppear(_ animated: Bool) {
         pager.delegate = self
+        eventList.delegate = self
+        
+    }
+    
+    func didLoadEvents() {
         loadPagesFromInitialPage(pager.initialPage)
     }
 
@@ -150,15 +155,16 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
             updateContentSize(page + pager.pageBuffer)
         }
     }
-    
-    
+
     func updateTitle(_ page: Int){
         let date = Date().dateForDaysFromNow(days: page)
         let title = pager.titleIsToggled ? date.convertToString(withFormat: "EEEE") : date.convertToString(withFormat: "d. MMM")
         titleButton.setTitle(title, for: .normal)
     }
     
-    // MARK: - Navigation
+    
+    
+    // MARK: - Navigation//////////////////////
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("segue")
@@ -166,6 +172,8 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
     
     @IBAction func unwindToMenu(segue:UIStoryboardSegue) {
     }
+    
+    
     
     //MARK: SCROLLVIEW////////////////////////////////////////
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -214,7 +222,7 @@ extension eventMenuViewController{
             cell.placeNameLabel.text = event.location?.name
             cell.timeLabel.text = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
             cell.locationLabel.text = event.location?.street
-            cell.representingId = event.id
+            cell.backgroundImg.downloadedFrom(link: "https://graph.facebook.com/\(event.id)/picture?type=small")
         }
         
         return cell
