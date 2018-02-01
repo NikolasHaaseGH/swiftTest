@@ -22,10 +22,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXw-Ta-Khd">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5co-Cg-0xb">
                         <rect key="frame" x="2" y="0.0" width="371" height="148"/>
-                        <color key="backgroundColor" red="0.1247976036" green="0.092829123360000002" blue="0.0010343679600000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOe-Ef-cds">
                         <rect key="frame" x="16" y="49" width="343" height="21"/>
                         <constraints>
@@ -106,24 +105,25 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="lYw-2a-BqR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="2Ix-NQ-qAV"/>
-                    <constraint firstAttribute="bottom" secondItem="vXw-Ta-Khd" secondAttribute="bottom" constant="2" id="9SB-2C-v9R"/>
-                    <constraint firstItem="vXw-Ta-Khd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BgW-HL-3IU"/>
-                    <constraint firstAttribute="trailing" secondItem="vXw-Ta-Khd" secondAttribute="trailing" constant="2" id="FVr-CV-dLO"/>
+                    <constraint firstAttribute="bottom" secondItem="5co-Cg-0xb" secondAttribute="bottom" constant="2" id="JvD-YE-jo6"/>
                     <constraint firstAttribute="bottom" secondItem="lYw-2a-BqR" secondAttribute="bottom" constant="2" id="LnA-si-6CQ"/>
                     <constraint firstItem="MOe-Ef-cds" firstAttribute="top" secondItem="04J-OD-eFU" secondAttribute="bottom" constant="8" id="PlL-Wu-OnN"/>
                     <constraint firstItem="MOe-Ef-cds" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="VK4-DX-pAC"/>
                     <constraint firstItem="MOe-Ef-cds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bVH-6D-Z6I"/>
                     <constraint firstItem="04J-OD-eFU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dzb-ww-fAr"/>
                     <constraint firstItem="lYw-2a-BqR" firstAttribute="top" secondItem="MOe-Ef-cds" secondAttribute="bottom" constant="8" id="gJf-2s-Wz6"/>
-                    <constraint firstItem="vXw-Ta-Khd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="hmN-DX-nwm"/>
+                    <constraint firstItem="5co-Cg-0xb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="je3-tw-ZcI"/>
+                    <constraint firstAttribute="trailing" secondItem="5co-Cg-0xb" secondAttribute="trailing" constant="2" id="kAo-lc-EHP"/>
                     <constraint firstAttribute="trailing" secondItem="lYw-2a-BqR" secondAttribute="trailing" constant="2" id="lhO-Ad-Urt"/>
                     <constraint firstItem="04J-OD-eFU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="pPA-pH-59s"/>
+                    <constraint firstItem="5co-Cg-0xb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rLc-R5-Dht"/>
                     <constraint firstItem="04J-OD-eFU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="v59-mP-3Wg"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backgroundImg" destination="5co-Cg-0xb" id="NXj-SC-F35"/>
                 <outlet property="eventNameLabel" destination="04J-OD-eFU" id="DBU-B9-y0n"/>
                 <outlet property="locationLabel" destination="zZf-Ay-gHo" id="P9e-lj-Sae"/>
                 <outlet property="placeNameLabel" destination="MOe-Ef-cds" id="FdR-dM-R1i"/>
