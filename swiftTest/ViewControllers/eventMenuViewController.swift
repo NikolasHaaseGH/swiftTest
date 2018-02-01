@@ -214,6 +214,7 @@ extension eventMenuViewController{
             cell.placeNameLabel.text = event.location?.name
             cell.timeLabel.text = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
             cell.locationLabel.text = event.location?.street
+            cell.representingId = event.id
         }
         
         return cell
