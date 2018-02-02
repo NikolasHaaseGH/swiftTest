@@ -10,10 +10,19 @@ import UIKit
 
 class eventDetailViewController: UIViewController {
 
+    var eventNameString: String!
+    @IBOutlet private weak var eventNameLabel: UILabel!
+    var eventImageLink: String!
+    @IBOutlet weak var eventImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        eventNameLabel.text = eventNameString
+        eventImageView.downloadedFrom(link: eventImageLink)
+        
+        eventImageView.layer.masksToBounds = true
+        eventImageView.contentMode = .scaleAspectFill
     }
 
     override func didReceiveMemoryWarning() {

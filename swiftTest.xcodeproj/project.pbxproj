@@ -24,6 +24,7 @@
 		65898A942021EBB6008AEAB9 /* eventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65898A922021EBB6008AEAB9 /* eventDetailViewController.swift */; };
 		65898A952021EBB6008AEAB9 /* eventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65898A932021EBB6008AEAB9 /* eventDetailViewController.xib */; };
 		659C30DF20121F59001043FB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C30DE20121F59001043FB /* EventList.swift */; };
+		65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */; };
 		C0FC838F04AF532242B94C06 /* Pods_swiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28637F14273B1C5460D662B2 /* Pods_swiftTest.framework */; };
 		F13E3FC697DBB1965F48C23B /* Pods_swiftTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6471A91E8B142CB4ECD657F9 /* Pods_swiftTestTests.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		65898A922021EBB6008AEAB9 /* eventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailViewController.swift; sourceTree = "<group>"; };
 		65898A932021EBB6008AEAB9 /* eventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventDetailViewController.xib; sourceTree = "<group>"; };
 		659C30DE20121F59001043FB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeShadowLayer.swift; sourceTree = "<group>"; };
 		90E7D007D75E618BB3B01707 /* Pods-swiftTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTestUITests/Pods-swiftTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1CE5AAB4051E286439232B0 /* Pods-swiftTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTestTests/Pods-swiftTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C89075E422E0CC5D44A29AAA /* Pods_swiftTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,9 +185,10 @@
 		65898A902021EB37008AEAB9 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				657E836E200E2B0B00A3506F /* AppDelegate.swift */,
 				655368FF20176D020015EDBC /* Event.swift */,
 				659C30DE20121F59001043FB /* EventList.swift */,
-				657E836E200E2B0B00A3506F /* AppDelegate.swift */,
+				65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				65898A8D2020C56F008AEAB9 /* eventMenuViewController.swift in Sources */,
 				657DF518201F815800F0609B /* calendarViewController.swift in Sources */,
 				65812B84200E6C8A00C21C55 /* mapViewController.swift in Sources */,
+				65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */,
 				657E8371200E2B0B00A3506F /* ViewController.swift in Sources */,
 				659C30DF20121F59001043FB /* EventList.swift in Sources */,
 				6553690020176D020015EDBC /* Event.swift in Sources */,

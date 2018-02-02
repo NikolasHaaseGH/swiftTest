@@ -9,6 +9,7 @@
 import UIKit
 
 class EventTableView: UITableView{
+    var arrayOfPresentingEvents = [Event]()
     var presentingDate = Date()
     var presentingDateString: String{
         get{
@@ -127,9 +128,9 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
             if (self.eventList.eventsForDate(date: Date().dateForDaysFromNow(days: page)) != nil){
             tableView.delegate = self
             tableView.dataSource = self
+            }
             tableView.separatorStyle = .none
             tableView.backgroundColor = UIColor.clear
-            }
             tableView.register(self.eventCellNib, forCellReuseIdentifier: "eventTVCell")
             tableView.presentingDate = Date().dateForDaysFromNow(days: page)
             pager.dictOfLoadedPages[page] = tableView
@@ -218,14 +219,23 @@ extension eventMenuViewController{
         //print(eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)!)
         for index in indexPath{
             let event = eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)![index]
-            cell.eventNameLabel.text = event.name
-            cell.placeNameLabel.text = event.location?.name
-            cell.timeLabel.text = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
-            cell.locationLabel.text = event.location?.street
-            cell.backgroundImg.downloadedFrom(link: "https://graph.facebook.com/\(event.id)/picture?type=small")
+            (tableView as! EventTableView).arrayOfPresentingEvents.append(event)
+            cell.eventNameString = event.name
+            cell.placeNameString = event.location?.name
+            cell.timeString = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
+            cell.locationString = event.location?.street
+            cell.backgroundImgLink = EventList.getLinkOfImgForID(event.id, resolution: .small)
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = (tableView as! EventTableView).arrayOfPresentingEvents[indexPath.item]
+        let eventDetailVC = eventDetailViewController(nibName: "eventDetailViewController", bundle: nil)
+        eventDetailVC.eventImageLink = EventList.getLinkOfImgForID(event.thumbnailID!, resolution: .normal)
+        eventDetailVC.eventNameString = event.name
+        self.present(eventDetailVC, animated: true, completion: nil)
     }
 }
 

@@ -40,8 +40,7 @@ class EventList{
     }
 
     fileprivate func fetchAllEvents(){
-        
-        let params = ["fields" : ""]
+        let params = ["fields" : "description, end_time, start_time, id, name, rsvp_status, place, cover"]
         let graphRequest = GraphRequest(graphPath: "me/events", parameters: params)
                 graphRequest.start {
                     (urlResponse, requestResult) in
@@ -58,7 +57,6 @@ class EventList{
                             for dataOfEvent in arrayOfDataOfAllEvents{
                                 if let dict = dataOfEvent as? NSDictionary{
                                     let event = Event(with: dict)
-                                    print(event)
                                     let stringDate = event.startTime?.convertToString(withFormat: "d MMM")
                                     
                                     var array = [Event]()
@@ -73,6 +71,18 @@ class EventList{
                 }
             }
         }
+    }
+    
+    enum Resolution: String{
+        case large = "large"
+        case normal = "normal"
+        case small = "small"
+        case thumbnail = "thumbnail"
+        case album = "album"
+    }
+    
+    static func getLinkOfImgForID(_ id: String, resolution: Resolution) -> String{
+        return "https://graph.facebook.com/\(id)/picture?type=\(resolution.rawValue)"
     }
 }
 

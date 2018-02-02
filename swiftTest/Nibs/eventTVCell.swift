@@ -10,13 +10,19 @@ import UIKit
 
 class eventTVCell: UITableViewCell {
 
-    @IBOutlet weak var eventNameLabel: UILabel!
-    @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var statusButton: UIButton!
-    @IBOutlet weak var backgroundImg: UIImageView!
-    @IBOutlet weak var detailBackgroundView: UIView!
+    @IBOutlet private weak var eventNameLabel: UILabel!
+    var eventNameString: String!
+    @IBOutlet private weak var placeNameLabel: UILabel!
+    var placeNameString: String!
+    @IBOutlet private weak var timeLabel: UILabel!
+    var timeString: String!
+    @IBOutlet private weak var locationLabel: UILabel!
+    var locationString: String!
+    @IBOutlet private weak var statusButton: UIButton!
+    var statusString: String!
+    @IBOutlet private weak var backgroundImg: UIImageView!
+    var backgroundImgLink: String!
+    @IBOutlet private weak var detailBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +38,13 @@ class eventTVCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        eventNameLabel.text = eventNameString
+        placeNameLabel.text = placeNameString
+        timeLabel.text = timeString
+        locationLabel.text = locationString
+        backgroundImg.downloadedFrom(link: backgroundImgLink)
+        
         backgroundImg.layer.masksToBounds = true
         backgroundImg.contentMode = .scaleAspectFill
     }

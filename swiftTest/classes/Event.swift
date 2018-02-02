@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 struct Event{
-    let id: String, name: String, description: String?, location: Location?, startTime: Date?, endTime: Date?, userStatus: String?
+    let id: String, name: String, description: String?, location: Location?, startTime: Date?, endTime: Date?, userStatus: String?, thumbnailID: String?
     
     init(with Dict: NSDictionary){
         id = Dict.value(forKey: "id") as! String
@@ -20,6 +20,7 @@ struct Event{
         startTime = (Dict.value(forKey: "start_time") as? String)?.toDate
         endTime = (Dict.value(forKey: "end_time") as? String)?.toDate
         userStatus = Dict.value(forKey: "rsvp_status") as? String
+        thumbnailID = ((Dict["cover"] as? NSDictionary)?.value(forKey: "id") as? String)
     }
     
     struct Location{
