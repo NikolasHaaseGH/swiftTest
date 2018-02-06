@@ -21,10 +21,11 @@
 		657E838F200E2B0B00A3506F /* swiftTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E838E200E2B0B00A3506F /* swiftTestUITests.swift */; };
 		65812B84200E6C8A00C21C55 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812B83200E6C8A00C21C55 /* mapViewController.swift */; };
 		65898A8D2020C56F008AEAB9 /* eventMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65898A8C2020C56F008AEAB9 /* eventMenuViewController.swift */; };
-		65898A942021EBB6008AEAB9 /* eventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65898A922021EBB6008AEAB9 /* eventDetailViewController.swift */; };
-		65898A952021EBB6008AEAB9 /* eventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65898A932021EBB6008AEAB9 /* eventDetailViewController.xib */; };
 		659C30DF20121F59001043FB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C30DE20121F59001043FB /* EventList.swift */; };
 		65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */; };
+		65C26961202479B20043209D /* eventDetailPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C26960202479B20043209D /* eventDetailPagingViewController.swift */; };
+		65C2696420249FDD0043209D /* eventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2696220249FDD0043209D /* eventDetailViewController.swift */; };
+		65C2696520249FDD0043209D /* eventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C2696320249FDD0043209D /* eventDetailViewController.xib */; };
 		C0FC838F04AF532242B94C06 /* Pods_swiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28637F14273B1C5460D662B2 /* Pods_swiftTest.framework */; };
 		F13E3FC697DBB1965F48C23B /* Pods_swiftTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6471A91E8B142CB4ECD657F9 /* Pods_swiftTestTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,10 +72,11 @@
 		657E8390200E2B0B00A3506F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65812B83200E6C8A00C21C55 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		65898A8C2020C56F008AEAB9 /* eventMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventMenuViewController.swift; sourceTree = "<group>"; };
-		65898A922021EBB6008AEAB9 /* eventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailViewController.swift; sourceTree = "<group>"; };
-		65898A932021EBB6008AEAB9 /* eventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventDetailViewController.xib; sourceTree = "<group>"; };
 		659C30DE20121F59001043FB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeShadowLayer.swift; sourceTree = "<group>"; };
+		65C26960202479B20043209D /* eventDetailPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailPagingViewController.swift; sourceTree = "<group>"; };
+		65C2696220249FDD0043209D /* eventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailViewController.swift; sourceTree = "<group>"; };
+		65C2696320249FDD0043209D /* eventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventDetailViewController.xib; sourceTree = "<group>"; };
 		90E7D007D75E618BB3B01707 /* Pods-swiftTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTestUITests/Pods-swiftTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1CE5AAB4051E286439232B0 /* Pods-swiftTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTestTests/Pods-swiftTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C89075E422E0CC5D44A29AAA /* Pods_swiftTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				65812B83200E6C8A00C21C55 /* mapViewController.swift */,
 				65898A8C2020C56F008AEAB9 /* eventMenuViewController.swift */,
 				657DF517201F815800F0609B /* calendarViewController.swift */,
+				65C26960202479B20043209D /* eventDetailPagingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -176,8 +179,8 @@
 			children = (
 				655369072018FD150015EDBC /* eventTVCell.swift */,
 				655369082018FD150015EDBC /* eventTVCell.xib */,
-				65898A922021EBB6008AEAB9 /* eventDetailViewController.swift */,
-				65898A932021EBB6008AEAB9 /* eventDetailViewController.xib */,
+				65C2696220249FDD0043209D /* eventDetailViewController.swift */,
+				65C2696320249FDD0043209D /* eventDetailViewController.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -345,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6553690A2018FD150015EDBC /* eventTVCell.xib in Resources */,
-				65898A952021EBB6008AEAB9 /* eventDetailViewController.xib in Resources */,
+				65C2696520249FDD0043209D /* eventDetailViewController.xib in Resources */,
 				657E8379200E2B0B00A3506F /* LaunchScreen.storyboard in Resources */,
 				657E8376200E2B0B00A3506F /* Assets.xcassets in Resources */,
 				657E8374200E2B0B00A3506F /* Main.storyboard in Resources */,
@@ -535,10 +538,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65898A942021EBB6008AEAB9 /* eventDetailViewController.swift in Sources */,
 				65898A8D2020C56F008AEAB9 /* eventMenuViewController.swift in Sources */,
+				65C2696420249FDD0043209D /* eventDetailViewController.swift in Sources */,
 				657DF518201F815800F0609B /* calendarViewController.swift in Sources */,
 				65812B84200E6C8A00C21C55 /* mapViewController.swift in Sources */,
+				65C26961202479B20043209D /* eventDetailPagingViewController.swift in Sources */,
 				65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */,
 				657E8371200E2B0B00A3506F /* ViewController.swift in Sources */,
 				659C30DF20121F59001043FB /* EventList.swift in Sources */,

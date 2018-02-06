@@ -80,7 +80,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6W-1t-sp5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6W-1t-sp5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -102,8 +102,8 @@
                                                 <segue destination="vww-M6-KD9" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="74F-eh-WPf"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Txx-9f-bZQ">
-                                            <rect key="frame" x="159" y="5" width="57" height="34"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Txx-9f-bZQ">
+                                            <rect key="frame" x="124" y="5" width="127" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <state key="normal" title="Button">
@@ -133,11 +133,61 @@
                     <connections>
                         <outlet property="scrollView" destination="u6W-1t-sp5" id="Gc6-em-kqo"/>
                         <outlet property="titleButton" destination="Txx-9f-bZQ" id="nb7-eK-xAs"/>
+                        <segue destination="0aD-Za-Mzt" kind="presentation" identifier="showMenuPagingVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="hdY-aZ-yyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1L-hD-hrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2848.8000000000002" y="-485.30734632683664"/>
+        </scene>
+        <!--Event Detail Paging View Controller-->
+        <scene sceneID="mbI-Bg-8Ps">
+            <objects>
+                <viewController id="0aD-Za-Mzt" customClass="eventDetailPagingViewController" customModule="swiftTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wt5-Gk-s9C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-xy-hpb">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0aD-Za-Mzt" id="hv9-Qg-AVI"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ap-aQ-P3k">
+                                <rect key="frame" x="16" y="7" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="8Iy-ks-JCy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="0aD-Za-Mzt" eventType="touchUpInside" id="sUe-TZ-AW2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50741592639593902" green="0.50741592639593902" blue="0.50741592639593902" alpha="0.69860338184931503" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Ap-aQ-P3k" firstAttribute="leading" secondItem="MNt-1x-WfL" secondAttribute="leading" constant="16" id="1Te-TP-DDx"/>
+                            <constraint firstItem="2hd-xy-hpb" firstAttribute="bottom" secondItem="MNt-1x-WfL" secondAttribute="bottom" id="dl5-s2-eZD"/>
+                            <constraint firstItem="2hd-xy-hpb" firstAttribute="top" secondItem="1Ap-aQ-P3k" secondAttribute="bottom" constant="7" id="dq8-KR-eLN"/>
+                            <constraint firstItem="1Ap-aQ-P3k" firstAttribute="top" secondItem="Wt5-Gk-s9C" secondAttribute="top" constant="7" id="lSf-BK-fM2"/>
+                            <constraint firstItem="2hd-xy-hpb" firstAttribute="leading" secondItem="MNt-1x-WfL" secondAttribute="leading" id="qPi-cN-dNH"/>
+                            <constraint firstItem="2hd-xy-hpb" firstAttribute="top" secondItem="Wt5-Gk-s9C" secondAttribute="top" constant="44" id="rMK-gJ-XeT"/>
+                            <constraint firstItem="2hd-xy-hpb" firstAttribute="trailing" secondItem="MNt-1x-WfL" secondAttribute="trailing" id="z7R-OP-4fX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MNt-1x-WfL"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="2hd-xy-hpb" id="lUv-WD-etA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdJ-Kc-uw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3658.4000000000001" y="-990.85457271364328"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="g3c-U4-2PO">
@@ -292,7 +342,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwE-hc-Xkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dZD-OZ-cNI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3628" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="3687" y="-280"/>
         </scene>
         <!--Map-->
         <scene sceneID="LpK-tK-Sw3">

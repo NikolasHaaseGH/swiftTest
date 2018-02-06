@@ -132,8 +132,14 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
             tableView.separatorStyle = .none
             tableView.backgroundColor = UIColor.clear
             tableView.register(self.eventCellNib, forCellReuseIdentifier: "eventTVCell")
-            tableView.presentingDate = Date().dateForDaysFromNow(days: page)
+            
+            let presDate = Date().dateForDaysFromNow(days: page)
+            tableView.presentingDate = presDate
+            if let presEvents = eventList.eventsForDate(date: presDate){
+                tableView.arrayOfPresentingEvents = presEvents
+            }
             pager.dictOfLoadedPages[page] = tableView
+            
             scrollView.addSubview(tableView)
         }
     }
@@ -161,17 +167,6 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
         let date = Date().dateForDaysFromNow(days: page)
         let title = pager.titleIsToggled ? date.convertToString(withFormat: "EEEE") : date.convertToString(withFormat: "d. MMM")
         titleButton.setTitle(title, for: .normal)
-    }
-    
-    
-    
-    // MARK: - Navigation//////////////////////
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("segue")
-    }
-    
-    @IBAction func unwindToMenu(segue:UIStoryboardSegue) {
     }
     
     
@@ -218,8 +213,7 @@ extension eventMenuViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventTVCell", for: indexPath) as! eventTVCell
         //print(eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)!)
         for index in indexPath{
-            let event = eventList.eventsForDate(date: (tableView as! EventTableView).presentingDate)![index]
-            (tableView as! EventTableView).arrayOfPresentingEvents.append(event)
+            let event = (tableView as! EventTableView).arrayOfPresentingEvents[index]
             cell.eventNameString = event.name
             cell.placeNameString = event.location?.name
             cell.timeString = (event.startTime?.convertToString(withFormat: "hh:mm"))! + " - " + (event.endTime?.convertToString(withFormat: "hh:mm"))!
@@ -231,14 +225,33 @@ extension eventMenuViewController{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let event = (tableView as! EventTableView).arrayOfPresentingEvents[indexPath.item]
-        let eventDetailVC = eventDetailViewController(nibName: "eventDetailViewController", bundle: nil)
-        eventDetailVC.eventImageLink = EventList.getLinkOfImgForID(event.thumbnailID!, resolution: .normal)
-        eventDetailVC.eventNameString = event.name
-        self.present(eventDetailVC, animated: true, completion: nil)
+        print("cell selected")
+        var array = Array<Any>()
+        array.append(indexPath.item)
+        array.append((tableView as! EventTableView).arrayOfPresentingEvents)
+        performSegue(withIdentifier: "showMenuPagingVC", sender: (tableView as! EventTableView).arrayOfPresentingEvents)
     }
+    
+   
 }
 
+
+
+extension eventMenuViewController{
+    // MARK: - Navigation//////////////////////
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMenuPagingVC"{
+            print("events: ", sender as! [Event])
+            let destination = (segue.destination as! eventDetailPagingViewController)
+            destination.representingEvents = sender as! [Event]
+            //destination.pageToPresent = (sender as! Array)[0]
+        }
+    }
+    
+    @IBAction func unwindToMenu(segue:UIStoryboardSegue) {
+    }
+}
 
 
 
