@@ -22,7 +22,7 @@ struct Event{
         userStatus = Dict.value(forKey: "rsvp_status") as? String
         thumbnailID = ((Dict["cover"] as? NSDictionary)?.value(forKey: "id") as? String)
     }
-    
+        
     struct Location{
         
         var coordinates: CLLocationCoordinate2D{

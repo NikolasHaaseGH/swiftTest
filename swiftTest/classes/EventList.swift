@@ -19,6 +19,7 @@ class EventList{
     
     var delegate : EventListDelegate?
     
+    fileprivate var facebookJSON: String!
     
     fileprivate var dictOfEventsAtDates = [String : [Event]](){
         didSet{
@@ -40,8 +41,8 @@ class EventList{
     }
 
     fileprivate func fetchAllEvents(){
-        let params = ["fields" : "description, end_time, start_time, id, name, rsvp_status, place, cover"]
-        let graphRequest = GraphRequest(graphPath: "me/events", parameters: params)
+        let params = ["fields" : "events{end_time, start_time, id, name, rsvp_status, place, cover}"]
+        let graphRequest = GraphRequest(graphPath: "me/likes", parameters: params)
                 graphRequest.start {
                     (urlResponse, requestResult) in
                     
@@ -51,22 +52,28 @@ class EventList{
                         break
                     case .success(let graphResponse):
                         if let result = graphResponse.dictionaryValue {
-                            
                             var fetchedEvents = [String : [Event]]()
-                            let arrayOfDataOfAllEvents = result["data"] as! Array<Any>
-                            for dataOfEvent in arrayOfDataOfAllEvents{
+                            let arrayOfPages = result["data"] as! Array<Any>
+                            let arrayOfEvents = arrayOfPages.flatMap{(($0 as! NSDictionary).value(forKey: "events") as! NSDictionary).value(forKey: "data") as! Array<Any>}
+                            var arrayOfEventIDs = [String]()
+                            print(arrayOfEvents)
+                            
+                            for dataOfEvent in arrayOfEvents{
                                 if let dict = dataOfEvent as? NSDictionary{
                                     let event = Event(with: dict)
                                     let stringDate = event.startTime?.convertToString(withFormat: "d MMM")
+                                    let stringID = dict.value(forKey: "id") as! String
                                     
-                                    var array = [Event]()
-                                    if let val = fetchedEvents[stringDate!] {
-                                        array = val
-                                    }
-                                    array.append(event)
-                                    fetchedEvents[stringDate!] = array
+                                    if !arrayOfEventIDs.contains(stringID){
+                                        arrayOfEventIDs.append(stringID)
+                                        
+                                        var array = [Event]()
+                                        if let val = fetchedEvents[stringDate!] { array = val }
+                                        array.append(event)
+                                        fetchedEvents[stringDate!] = array
+                                        }
+                                }
                             }
-                    }
                             self.dictOfEventsAtDates = fetchedEvents
                 }
             }

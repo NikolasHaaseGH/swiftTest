@@ -22,7 +22,6 @@
 		65812B84200E6C8A00C21C55 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65812B83200E6C8A00C21C55 /* mapViewController.swift */; };
 		65898A8D2020C56F008AEAB9 /* eventMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65898A8C2020C56F008AEAB9 /* eventMenuViewController.swift */; };
 		659C30DF20121F59001043FB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C30DE20121F59001043FB /* EventList.swift */; };
-		65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */; };
 		65C26961202479B20043209D /* eventDetailPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C26960202479B20043209D /* eventDetailPagingViewController.swift */; };
 		65C2696420249FDD0043209D /* eventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2696220249FDD0043209D /* eventDetailViewController.swift */; };
 		65C2696520249FDD0043209D /* eventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C2696320249FDD0043209D /* eventDetailViewController.xib */; };
@@ -73,7 +72,6 @@
 		65812B83200E6C8A00C21C55 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		65898A8C2020C56F008AEAB9 /* eventMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventMenuViewController.swift; sourceTree = "<group>"; };
 		659C30DE20121F59001043FB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
-		65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeShadowLayer.swift; sourceTree = "<group>"; };
 		65C26960202479B20043209D /* eventDetailPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailPagingViewController.swift; sourceTree = "<group>"; };
 		65C2696220249FDD0043209D /* eventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailViewController.swift; sourceTree = "<group>"; };
 		65C2696320249FDD0043209D /* eventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventDetailViewController.xib; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				657E836E200E2B0B00A3506F /* AppDelegate.swift */,
 				655368FF20176D020015EDBC /* Event.swift */,
 				659C30DE20121F59001043FB /* EventList.swift */,
-				65C2695E2023B6CF0043209D /* EdgeShadowLayer.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -543,7 +540,6 @@
 				657DF518201F815800F0609B /* calendarViewController.swift in Sources */,
 				65812B84200E6C8A00C21C55 /* mapViewController.swift in Sources */,
 				65C26961202479B20043209D /* eventDetailPagingViewController.swift in Sources */,
-				65C2695F2023B6CF0043209D /* EdgeShadowLayer.swift in Sources */,
 				657E8371200E2B0B00A3506F /* ViewController.swift in Sources */,
 				659C30DF20121F59001043FB /* EventList.swift in Sources */,
 				6553690020176D020015EDBC /* Event.swift in Sources */,

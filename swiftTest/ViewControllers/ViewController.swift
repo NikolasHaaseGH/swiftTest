@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @IBAction func loginAttempt(_ sender: UIButton) {
         let loginManager = LoginManager()
         
-        loginManager.logIn(readPermissions: [ReadPermission.publicProfile, .email, .userEvents], viewController : self) { loginResult in
+        loginManager.logIn(readPermissions: [ReadPermission.publicProfile, .email, .userEvents, .userLikes], viewController : self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)

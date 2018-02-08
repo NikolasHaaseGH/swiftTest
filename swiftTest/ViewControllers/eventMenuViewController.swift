@@ -16,6 +16,18 @@ class EventTableView: UITableView{
             return presentingDate.convertToString(withFormat: "d MMM")
         }
     }
+    
+    override init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        
+        self.separatorStyle = .none
+        self.showsVerticalScrollIndicator = false
+        self.backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 protocol pagingDelegate{
@@ -129,10 +141,7 @@ class eventMenuViewController: UIViewController, UIScrollViewDelegate, pagingDel
             tableView.delegate = self
             tableView.dataSource = self
             }
-            tableView.separatorStyle = .none
-            tableView.backgroundColor = UIColor.clear
             tableView.register(self.eventCellNib, forCellReuseIdentifier: "eventTVCell")
-            
             let presDate = Date().dateForDaysFromNow(days: page)
             tableView.presentingDate = presDate
             if let presEvents = eventList.eventsForDate(date: presDate){
