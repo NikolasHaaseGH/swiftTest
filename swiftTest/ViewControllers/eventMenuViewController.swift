@@ -13,7 +13,7 @@ class EventTableView: UITableView{
     var presentingDate = Date()
     var presentingDateString: String{
         get{
-            return presentingDate.convertToString(withFormat: "d MMM")
+            return presentingDate.convertToString(withFormat: "dMMMyyy")
         }
     }
     

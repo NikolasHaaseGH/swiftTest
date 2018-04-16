@@ -239,7 +239,6 @@
 				657E8368200E2B0B00A3506F /* Frameworks */,
 				657E8369200E2B0B00A3506F /* Resources */,
 				D26F5CD5DAFFB71DE06ADAE3 /* [CP] Embed Pods Frameworks */,
-				428F7B0721FDEEE06ECF142A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,8 +257,6 @@
 				657E837B200E2B0B00A3506F /* Sources */,
 				657E837C200E2B0B00A3506F /* Frameworks */,
 				657E837D200E2B0B00A3506F /* Resources */,
-				35C7C9F48AB7826E580FB59A /* [CP] Embed Pods Frameworks */,
-				0FABA90914B3ACEA12A261AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,8 +276,6 @@
 				657E8386200E2B0B00A3506F /* Sources */,
 				657E8387200E2B0B00A3506F /* Frameworks */,
 				657E8388200E2B0B00A3506F /* Resources */,
-				998E06019A4FCEE5C87E922E /* [CP] Embed Pods Frameworks */,
-				35EF855338D3A366CF433250 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -369,66 +364,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FABA90914B3ACEA12A261AA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTestTests/Pods-swiftTestTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		35C7C9F48AB7826E580FB59A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTestTests/Pods-swiftTestTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		35EF855338D3A366CF433250 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTestUITests/Pods-swiftTestUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		428F7B0721FDEEE06ECF142A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTest/Pods-swiftTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		461F01E09ABFEAFAFD868283 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -463,21 +398,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		998E06019A4FCEE5C87E922E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTestUITests/Pods-swiftTestUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEE167E0ED3F61BD785DE730 /* [CP] Check Pods Manifest.lock */ = {

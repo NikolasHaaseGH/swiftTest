@@ -15,7 +15,7 @@ class eventTVCell: UITableViewCell {
     @IBOutlet private weak var placeNameLabel: UILabel!
     var placeNameString: String!
     @IBOutlet private weak var timeLabel: UILabel!
-    var timeString: String!
+    var timeString: String?
     @IBOutlet private weak var locationLabel: UILabel!
     var locationString: String!
     @IBOutlet private weak var statusButton: UIButton!
